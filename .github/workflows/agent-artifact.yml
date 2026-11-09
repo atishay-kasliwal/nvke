@@ -124,7 +124,7 @@ jobs:
           # string stamped into the binary and the string in the registry tag
           # cannot disagree. On an untagged commit this is v0.2.0-4-gdeadbee;
           # with no v* tag reachable at all, the short sha.
-          version="$(git describe --tags --always --match 'v*' "${GITHUB_SHA}")"
+          version="$(release/hack/describe-version.sh "${GITHUB_SHA}")"
 
           # sha- and edge are the hand-off agent/Makefile reads; the version
           # alias is the GitHub publication.

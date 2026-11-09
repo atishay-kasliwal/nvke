@@ -73,7 +73,7 @@ jobs:
         shell: bash
         run: |
           set -euo pipefail
-          VERSION="$(git describe --tags --always --match 'v*' "${GITHUB_SHA}")"
+          VERSION="$(release/hack/describe-version.sh "${GITHUB_SHA}")"
           echo "version=${VERSION}" >> "${GITHUB_OUTPUT}"
           echo "Building nvkectl ${VERSION} for ${GITHUB_REF_NAME}"
 

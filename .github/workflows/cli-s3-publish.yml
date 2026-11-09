@@ -111,7 +111,7 @@ jobs:
 
           # Published under the describe version, the same one tag-publish.yml
           # stamps into nvkectl, whichever tag started the run.
-          release="$(git describe --tags --always --match 'v*' "${GITHUB_SHA}")"
+          release="$(release/hack/describe-version.sh "${GITHUB_SHA}")"
 
           {
             echo "s3_uri=${S3_URI}"

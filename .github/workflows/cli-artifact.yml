@@ -82,7 +82,7 @@ jobs:
           set -euo pipefail
           repo="ghcr.io/${GITHUB_REPOSITORY,,}/cli"
 
-          version="$(git describe --tags --always --match 'v*' "${GITHUB_SHA}")"
+          version="$(release/hack/describe-version.sh "${GITHUB_SHA}")"
 
           # sha- and edge stay as the CI hand-off; the version alias is the
           # GitHub publication.
